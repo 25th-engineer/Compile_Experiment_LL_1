@@ -1,0 +1,8 @@
+X->TM
+M->+TM|-TM
+M->ε
+T->YS
+S->*YS|/YS
+S->ε
+Y->(X)
+Y->i

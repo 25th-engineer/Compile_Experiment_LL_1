@@ -1,0 +1,4 @@
+E->E+T|T
+T->T-T|F
+T->T+T|x
+F->(E)|i
