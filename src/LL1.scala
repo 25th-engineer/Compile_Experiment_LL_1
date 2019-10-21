@@ -1,3 +1,4 @@
+import scala.collection.immutable.Stack
 import scala.collection.mutable
 import scala.collection.mutable.{ArrayBuffer, Map}
 import scala.util.matching.Regex
@@ -31,12 +32,12 @@ object LL1 {
 		//test countLines
 		//println( "cnt = " + countLines( readFromTxtByLine("/home/hadoop001/Desktop/test.data") ) )
 		//test parseFile
-		val result = parseFile("/home/hadoop001/Desktop/test2.data")
+		val result = parseFile("/home/hadoop001/Desktop/test6.data")
 		println( "the original language rules:" )
 		for( rs <- result ) {
 			println( rs._1 + "->" + rs._2 )
 		}
-		initiate("/home/hadoop001/Desktop/test2.data")
+		initiate("/home/hadoop001/Desktop/test6.data")
 		println( "after eliminating the all the left recursion in the language rules:" )
 		displayRelations()
 
@@ -61,7 +62,8 @@ object LL1 {
 		println( "FIRST: " )
 		for( t <- tx ) {
 			if( allCharacters.contains( t._1 ) ) {
-				println(t)
+				//println(t)
+				println( "FIRST(" + t._1 + ") = {" + t._2.mkString(",") + "}" )
 			}
 		}
 		// test FOLLOW
@@ -69,7 +71,8 @@ object LL1 {
 		println( "FOLLOW: " )
 		for( t <- ex ) {
 			if( VN.contains( t._1 ) ) {
-				println(t)
+				//println(t)
+				println( "FOLLOW(" + t._1 + ") = {" + t._2.mkString(",") + "}" )
 			}
 		}
 
@@ -108,6 +111,25 @@ object LL1 {
 //		}
 
 		analyse("i+i*i#")
+	}
+
+	/*
+	* Function name: displayStack
+	* Function description: 输出栈的所有元素
+	* Input parameters: -mutable.Stack[String]（待处理的String类型的栈）
+	* Return value: -String（栈所有元素组成的字符串）
+	* Exception: 未处理
+	* Author: 文华
+	* Created date: Mon Oct 21 2019 +0800
+	* Editor: 文华
+	* Edited Date: Mon Oct 21 2019 +0800
+	 */
+	def displayStack( stack: mutable.Stack[String] ): String = {
+		var result = ""
+		for( ex <- stack ) {
+			result += ex
+		}
+		result
 	}
 
 	/*
@@ -1112,7 +1134,7 @@ object LL1 {
 		stack.push( localRelations(0)._1 )
 
 		var cnt = 0
-		println( cnt + " " + " stack = " + stack + ", expression = " + localExpression + "  initiate" )
+		println( cnt + " " + " stack = " + displayStack(stack).reverse + ", expression = " + localExpression + "  initiate" )
 
 		while( stack.isEmpty == false ) {
 			val stackTop = stack.top
@@ -1129,8 +1151,14 @@ object LL1 {
 						}
 					}
 					cnt += 1
-					println( cnt + " " + " stack = " + stack + ", expression = " + localExpression +
-							",  analyse expression = " + table( getRow(stackTop) )( getColumn( localExpression(0).toString ) ) + ",  POP, PUSH(" + lastHalf.reverse + ")")
+					if( lastHalf != "ε" ) {
+						println(cnt + " " + " stack = " + displayStack(stack).reverse + ", expression = " + localExpression +
+								",  analyse expression = " + table(getRow(stackTop))(getColumn(localExpression(0).toString)) + ",  POP, PUSH(" + lastHalf.reverse + ")")
+					}
+					else {
+						println(cnt + " " + " stack = " + displayStack(stack).reverse + ", expression = " + localExpression +
+								",  analyse expression = " + table(getRow(stackTop))(getColumn(localExpression(0).toString)) + ",  POP")
+					}
 				}
 				// 栈顶符号与表达式左端首字符  不存在  关系
 				else {
@@ -1143,7 +1171,7 @@ object LL1 {
 					else {
 						println("1 - error")
 						//stack.push( localExpression(0).toString )
-						println( cnt + " " + " stack = " + stack + ", expression = " + localExpression )
+						println( cnt + " " + " stack = " + displayStack(stack).reverse + ", expression = " + localExpression )
 						return false
 					}
 				}
@@ -1156,7 +1184,7 @@ object LL1 {
 						//stack.pop()
 						localExpression = localExpression.drop(1)
 						cnt += 1
-						println( cnt + " " + " stack = " + stack + ", expression = " + localExpression + ",  GETNEXT(" + stackTop + ")" )
+						println( cnt + " " + " stack = " + displayStack(stack).reverse + ", expression = " + localExpression + ",  GETNEXT(" + stackTop + ")" )
 					}
 					// 栈顶符号 不等于 表达式左端首字符
 					else {

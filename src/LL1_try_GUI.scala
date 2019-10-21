@@ -21,7 +21,7 @@ object LL1_try_GUI {
 
 
 	private var LL1_G = new ArrayBuffer[ (String, String) ]()//ArrayBuffer( ("E", "TG"), ("G", "+TG|-TG"), ("G", "ε"), ("T", "FS"), ("S", "*FS|/FS"),
-		//("S", "ε"), ("F", "(E)"), ("F", "i") )//, ("Y", "*FS|/FS"), ("Y", "+TG|-TG"), ("Y", "x"), ("Y", "M"), ("M", "i"), ("M", "ε") )
+	//("S", "ε"), ("F", "(E)"), ("F", "i") )//, ("Y", "*FS|/FS"), ("Y", "+TG|-TG"), ("Y", "x"), ("Y", "M"), ("M", "i"), ("M", "ε") )
 	//	 test data 1:
 	//	 ( ("E", "TG"), ("G", "+TG|-TG"), ("G", "ε"), ("T", "FS"), ("S", "*FS|/FS"),
 	//			("S", "ε"), ("F", "(E)"), ("F", "i"), ("Y", "S"), ("Y", "Gx"), ("Y", "x"), ("Y", "M"), ("M", "i"), ("M", "ε") )
@@ -45,6 +45,25 @@ object LL1_try_GUI {
 	}
 
 	/*
+	* Function name: displayStack
+	* Function description: 输出栈的所有元素
+	* Input parameters: -mutable.Stack[String]（待处理的String类型的栈）
+	* Return value: -String（栈所有元素组成的字符串）
+	* Exception: 未处理
+	* Author: 文华
+	* Created date: Mon Oct 21 2019 +0800
+	* Editor: 文华
+	* Edited Date: Mon Oct 21 2019 +0800
+	 */
+	def displayStack( stack: mutable.Stack[String] ): String = {
+		var result = ""
+		for( ex <- stack ) {
+			result += ex
+		}
+		result
+	}
+
+	/*
 	* Function name: utility
 	* Function description: 辅助输出函数
 	* Input parameters: 无
@@ -56,36 +75,26 @@ object LL1_try_GUI {
 	* Edited Date: Sun Oct 20 2019 +0800
 	 */
 	def utility(): Unit = {
-		//println( "VT = " + VT )
 		staticStringBuilder.append("VT = " + VT +"\r\n");
-		//println( "VN = " + VN )
 		staticStringBuilder.append("VN = " + VN +"\r\n");
-		//println( "allCharacters = " + allCharacters )
 		staticStringBuilder.append( "allCharacters = " + allCharacters +"\r\n");
-		// test FIRST
 		val tx = FIRST(LL1_G)
-		//println( "FIRST: " )
-		staticStringBuilder.append(  "FIRST: " +"\r\n");
+		staticStringBuilder.append(  "FIRST集: " +"\r\n");
 		for( t <- tx ) {
 			if( allCharacters.contains( t._1 ) ) {
-				//println(t)
-				staticStringBuilder.append(t+"\r\n");
+				staticStringBuilder.append( "FIRST("+ t._1 + ") = {" + t._2.mkString(",") + "}\r\n");
 			}
 		}
-		// test FOLLOW
 		val ex = FOLLOW(LL1_G)
-		//println( "FOLLOW: " )
-		staticStringBuilder.append("FOLLOW: "+"\r\n");
+		staticStringBuilder.append("FOLLOW集: "+"\r\n");
 		for( t <- ex ) {
 			if( VN.contains( t._1 ) ) {
-				//println(t)
-				staticStringBuilder.append(t+"\r\n");
+				staticStringBuilder.append( "FOLLOW("+ t._1 + ") = {" + t._2.mkString(",") + "}\r\n");
 			}
 		}
 		val testMatrix1 = createMatrix()
 		staticTestMatrix = testMatrix1;
 		for( ex <- LL1_G ) {
-			//println( ex._1 + "->" + ex._2 )
 			staticStringBuilder2.append( ex._1 + "->" + ex._2 + "\r\n")
 		}
 	}
@@ -191,7 +200,7 @@ object LL1_try_GUI {
 		jFrame.add(displayFileJScrollPane)
 
 		//添加文件按钮
-//		val appendFileJButton = new JButton("添加文件");
+		//		val appendFileJButton = new JButton("添加文件");
 		val appendFileJButton = new JButton("显示当前文法")
 		appendFileJButton.setBounds(0, 32,120,30)
 		appendFileJButton.addActionListener(new ActionListener {
@@ -1341,8 +1350,7 @@ object LL1_try_GUI {
 
 		var cnt = 0
 		staticAnalyseList.append(new Analyse("步骤","分析栈","剩余字符串","所用产生式","动作"));
-		println( cnt + " " + " stack = " + stack + " expression = " + localExpression + "  initiate" )
-		staticAnalyseList.append(new Analyse(cnt.toString,stack.toString,localExpression.toString,"",""));
+		staticAnalyseList.append(new Analyse(cnt.toString, displayStack(stack).reverse.toString,localExpression.toString,"","initiate"));
 		while( stack.isEmpty == false ) {
 			val stackTop = stack.top
 			stack.pop()
@@ -1359,9 +1367,12 @@ object LL1_try_GUI {
 					}
 					cnt += 1
 
-					println( cnt + " " + " stack = " + stack + ", expression = " + localExpression +
-							",  analyse expression = " + table( getRow(stackTop) )( getColumn( localExpression(0).toString ) ) + ",  POP, PUSH(" + lastHalf.reverse + ")")
-					staticAnalyseList.append(new Analyse(cnt.toString,stack.toString,localExpression.toString,table( getRow(stackTop) )( getColumn( localExpression(0).toString ) ),"POP, PUSH(" + lastHalf.reverse + ")"));
+					if( lastHalf != "ε" ) {
+						staticAnalyseList.append(new Analyse(cnt.toString, displayStack(stack).reverse.toString, localExpression.toString, table(getRow(stackTop))(getColumn(localExpression(0).toString)), "POP, PUSH(" + lastHalf.reverse + ")"));
+					}
+					else {
+						staticAnalyseList.append(new Analyse(cnt.toString, displayStack(stack).reverse.toString, localExpression.toString, table(getRow(stackTop))(getColumn(localExpression(0).toString)), "POP"));
+					}
 				}
 				// 栈顶符号与表达式左端首字符  不存在  关系
 				else {
@@ -1373,9 +1384,7 @@ object LL1_try_GUI {
 					// 栈顶符号 不等于 表达式左端首字符
 					else {
 						println("1 - error")
-						//stack.push( localExpression(0).toString )
-						println( cnt + " " + " stack = " + stack + ", expression = " + localExpression )
-						staticAnalyseList.append(new Analyse(cnt.toString,stack.toString,localExpression.toString,"",""));
+						staticAnalyseList.append(new Analyse(cnt.toString, displayStack(stack).reverse.toString,localExpression.toString,"",""));
 						return false
 					}
 				}
@@ -1387,12 +1396,8 @@ object LL1_try_GUI {
 					if( stackTop == localExpression(0).toString ) {
 						//stack.pop()
 						localExpression = localExpression.drop(1)
-						//						if( stackTop == "i" ) {
-						//							println( "express = " + localExpression + ", stack = " + stack )
-						//						}
 						cnt += 1
-						println( cnt + " " + " stack = " + stack + ", expression = " + localExpression + ",  GETNEXT(" + stackTop + ")" )
-						staticAnalyseList.append(new Analyse(cnt.toString,stack.toString,localExpression.toString,"","GETNEXT(" + stackTop + ")"));
+						staticAnalyseList.append(new Analyse(cnt.toString, displayStack(stack).reverse.toString,localExpression.toString,"","GETNEXT(" + stackTop + ")"));
 					}
 					// 栈顶符号 不等于 表达式左端首字符
 					else {
