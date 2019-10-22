@@ -23,13 +23,13 @@
 >>>>④GUI的编写参考“菊花侠”大佬的手笔，Java封装实现界面。
 
 ## 程序截图：
-                                          <图 1 开始界面
+                                          <br>图 1 开始界面
 >>>>![开始界面](https://github.com/25thengineer/Compile_Experiment_LL_1/blob/master/images/x1.png)
                                           <br>图 2 选择文件<br>
 >>>>![选择文件](https://github.com/25thengineer/Compile_Experiment_LL_1/blob/master/images/x2.png)
                                           <br>图 3 显示当前文法<br>
 >>>>![显示当前文法](https://github.com/25thengineer/Compile_Experiment_LL_1/blob/master/images/x3.png)
-                                          <br>图 4 执行文法分析（输入表达式为“i+i*i”）<br>
+                                          <br>图 4 执行文法分析（输入表达式为“i+i\*i”）<br>
 >>>>![执行文法分析（输入表达式为“i+i*i”）](https://github.com/25thengineer/Compile_Experiment_LL_1/blob/master/images/x4.png)
-                                          <br>图 5 执行文法分析（输入表达式为“i+i*i-i/i”）<br>
+                                          <br>图 5 执行文法分析（输入表达式为“i+i\*i-i/i”）<br>
 >>>>![执行文法分析（输入表达式为“i+i*i-i/i”）](https://github.com/25thengineer/Compile_Experiment_LL_1/blob/master/images/x5.png)
