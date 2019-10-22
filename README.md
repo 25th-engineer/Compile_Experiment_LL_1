@@ -23,8 +23,7 @@
 >>>>④GUI的编写参考“菊花侠”大佬的手笔，Java封装实现界面。
 
 ## 程序截图：
->>>>
-                                          <br>图 1 开始界面
+>>>>图 1 开始界面<br>
 >>>>![开始界面](https://github.com/25thengineer/Compile_Experiment_LL_1/blob/master/images/x1.png)
                                           <br>图 2 选择文件<br>
 >>>>![选择文件](https://github.com/25thengineer/Compile_Experiment_LL_1/blob/master/images/x2.png)
