@@ -21,3 +21,10 @@
 >>>>②值得一提的是，FOLLOW集采用“先定位”，后“记忆搜索”的方法，对于不含左递归的文法，时空不甚可观；<br>
 >>>>③消除了形式上的左递归，但含bug；<br>
 >>>>④GUI的编写参考“菊花侠”大佬的手笔，Java封装实现界面。
+
+## 程序截图：
+>>>>![开始界面](https://github.com/25thengineer/Compile_Experiment_LL_1/blob/master/images/x1.png)
+>>>>![选择文件](https://github.com/25thengineer/Compile_Experiment_LL_1/blob/master/images/x2.png)
+>>>>![显示当前文法](https://github.com/25thengineer/Compile_Experiment_LL_1/blob/master/images/x3.png)
+>>>>![执行文法分析（输入表达式为“i+i*i”）](https://github.com/25thengineer/Compile_Experiment_LL_1/blob/master/images/x4.png)
+>>>>![执行文法分析（输入表达式为“i+i*i-i/i”）](https://github.com/25thengineer/Compile_Experiment_LL_1/blob/master/images/x5.png)
