@@ -119,9 +119,9 @@ object LL1 {
 	* Input parameters: -mutable.Stack[String]（待处理的String类型的栈）
 	* Return value: -String（栈所有元素组成的字符串）
 	* Exception: 未处理
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Mon Oct 21 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Mon Oct 21 2019 +0800
 	 */
 	def displayStack( stack: mutable.Stack[String] ): String = {
@@ -138,9 +138,9 @@ object LL1 {
 	* Input parameters: the absolute path of the language-rule source file
 	* Return value: 无
 	* Exception: 未处理
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Sat Oct 19 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Sat Oct 19 2019 +0800
 	 */
 	def initiate( filePath: String ): Unit = {
@@ -159,9 +159,9 @@ object LL1 {
 	* Input parameters: 无
 	* Return value: 无
 	* Exception: 未处理
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Sat Oct 19 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Sat Oct 19 2019 +0800
 	 */
 	def displayRelations(): Unit = {
@@ -181,9 +181,9 @@ object LL1 {
 	* Input parameters: 文本绝对路径
 	* Return value: -ArrayBuffer[ ( String, String ) ]（String类型的元组ArrayBuffer数组）
 	* Exception: 未处理
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Fri Oct 18 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Fri Oct 18 2019 +0800
 	 */
 	def parseFile( filePath: String ): ArrayBuffer[ ( String, String ) ] = {
@@ -202,9 +202,9 @@ object LL1 {
 	* Input parameters: -Array[String]（文本文件数据构成的数组）
 	* Return value: -Int（文本行数）
 	* Exception: 未处理
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Fri Oct 18 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Sat Oct 19 2019 +0800
 	 */
 	def countLines( sourceFile: Array[String] ): Int = {
@@ -221,9 +221,9 @@ object LL1 {
 	* Input parameters: -String（文本文件绝对路径）
 	* Return value: -Array[String]（文本文件构成的数组，每行数据占一个数组元素）
 	* Exception: -未处理
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Fri Oct 18 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Fri Oct 18 2019 +0800
 	 */
 	def readFromTxtByLine(filePath: String): Array[String] = {
@@ -243,9 +243,9 @@ object LL1 {
 	* Input parameters: -ArrayBuffer[ (String, String) ]（由文法左右两部分字符构成一个元组的数组，筛掉“|”）
 	* Return value: -String（文法的除“|”之外的所有字符）
 	* Exception: 未处理（有出错提示）
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Fri Oct 11 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Fri Oct 11 2019 +0800
 	 */
 	def getWholeCharacters( string: ArrayBuffer[ (String, String) ] ): String = {
@@ -266,9 +266,9 @@ object LL1 {
 	* Input parameters: -String（函数getWholeCharacters传来的文法的所有字符）
 	* Return value: -String（文法的所有非终结符）
 	* Exception: 未处理（有出错提示）
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Fri Oct 11 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Fri Oct 11 2019 +0800
 	 */
 	def getVN( string: String ): String = {
@@ -287,9 +287,9 @@ object LL1 {
 	* Input parameters: -String（函数getWholeCharacters传来的文法的所有字符）
 	* Return value: -String（文法的所有终结符）
 	* Exception: 未处理（有出错提示）
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Fri Oct 11 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Fri Oct 11 2019 +0800
 	 */
 	def getVT( string: String ): String = {
@@ -308,9 +308,9 @@ object LL1 {
 	* Input parameters: -ArrayBuffer[ (String, String)（已经分割好的文法左右部分构成的数组）
 	* Return value: -ArrayBuffer[ (String, String, String) ]（元组第一个元素为推导式左边符号，第二为右边第二个符号串，第三为右边（若有）第三个符号串）
 	* Exception: 未处理
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Fri Oct 11 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Fri Oct 11 2019 +0800
 	 */
 	def getRelation( string: ArrayBuffer[ (String, String) ] ): ArrayBuffer[ (String, String, String) ] = {
@@ -333,9 +333,9 @@ object LL1 {
 	* Input parameters: -String（指定字符）
 	* Return value: -String（指定字符的右边两个（可能是一个）导出字符串的首个非 ε 组成的字符串）
 	* Exception: 未处理
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Fri Oct 11 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Fri Oct 11 2019 +0800
 	 */
 	def findFirst( ch: String ): String = {
@@ -368,9 +368,9 @@ object LL1 {
 	* Input parameters: -String（指定字符串）
 	* Return value: -Boolean（存在则true，否则false）
 	* Exception: 未处理
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Fri Oct 11 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Fri Oct 11 2019 +0800
 	 */
 	def judgeOnlyOneVoidSuccession( ch: String ): Boolean = {
@@ -405,9 +405,9 @@ object LL1 {
 	* Input parameters: -Char（指定字符，即可能满足条件的产生式的左边字符）
 	* Return value: -Boolean（满足则true，否则false）
 	* Exception: 未处理
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Sat Oct 12 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Sat Oct 12 2019 +0800
 	 */
 	def judgeCaseXY( ch: Char ): Boolean = {
@@ -435,9 +435,9 @@ object LL1 {
 	* Input parameters: -Char（指定字符，即可能满足条件的产生式的左边字符）
 	* Return value: -String（Y构成的String字符串，无则为空）
 	* Exception: 未处理
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Sat Oct 12 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Sat Oct 12 2019 +0800
 	 */
 	def findCase_Y_In_XY( ch: Char ): String = {
@@ -472,9 +472,9 @@ object LL1 {
 	* Input parameters: -Char（指定字符，即可能满足条件的产生式的左边字符）
 	* Return value: -String（FIRST(Yi)中所有的非ε-元素构成的String字符串，无则为空）
 	* Exception: 未处理
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Sat Oct 12 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Sat Oct 12 2019 +0800
 	 */
 	def findCase_Y_In_nY( ch: Char ): String = {
@@ -550,9 +550,9 @@ object LL1 {
 	* Input parameters: -ArrayBuffer[ (String, String) ]（产生式左右两部分分别构成元组的第1个和第2个元素）
 	* Return value: -Map[ String, String ]（Map的key是非终结符，value是其FIRST元素）
 	* Exception: 未处理
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Mon Oct 14 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Sat Oct 19 2019 +0800
 	 */
 	def FIRST( string: ArrayBuffer[ (String, String) ] ): Map[ String, String ] = {
@@ -688,9 +688,9 @@ object LL1 {
 	* Input parameters: -ArrayBuffer[ (String, String) ]（产生式左右两部分分别构成元组的第1个和第2个元素）
 	* Return value: -Map[ String, String ]（Map的key是非终结符，value是其FOLLOW集元素）
 	* Exception: 未处理
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Sat Oct 19 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Sat Oct 19 2019 +0800
 	 */
 	def FOLLOW( string: ArrayBuffer[ (String, String) ] ): Map[ String, String ] = {
@@ -708,9 +708,9 @@ object LL1 {
 	* Input parameters: -String（指定的非终结符）
 	* Return value: -String（指定终结符的FOLLOW集元素）
 	* Exception: 未处理
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Sat Oct 19 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Sat Oct 19 2019 +0800
 	 */
 	def dfsFOLLOW( ch: String ): String = {
@@ -763,9 +763,9 @@ object LL1 {
 	* Input parameters: -String（指定终结符）
 	* Return value: -String（指定终结符的FOLLOW集元素，无则为空）
 	* Exception: 未处理
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Sat Oct 19 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Sat Oct 19 2019 +0800
 	 */
 	def findGivenValueFOLLOWPosition( ch: String ): String = {
@@ -877,9 +877,9 @@ object LL1 {
 	* Input parameters: -String, String, String, String[分别代表条件（2）的四个字符]
 	* Return value: -Boolean（满足条件（2）则返回true，否则返回false）
 	* Exception: 未处理
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Tue Oct 15 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Tue Oct 15 2019 +0800
 	 */
 	def judgeCase2( A: String, α: String, B: String, β: String ): Boolean = {
@@ -902,9 +902,9 @@ object LL1 {
 	* Input parameters: -String, String, String, String[分别代表条件（3）的四个字符]
 	* Return value: -Boolean（满足条件（3）则返回true，否则返回false）
 	* Exception: 未处理
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Wed Oct 16 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Wed Oct 16 2019 +0800
 	 */
 	def judgeCase3( A: String, α: String, B: String, β: String ): Boolean = {
@@ -927,9 +927,9 @@ object LL1 {
 	* Input parameters: 无
 	* Return value: -Array[ Array[ String] ]（分析表矩阵元素构成的二维数组，除了第0行和第0列，其它列与行的元素均为null）
 	* Exception: 未处理
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Wed Oct 16 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Wed Oct 16 2019 +0800
 	 */
 	def initiateMatrix(): Array[ Array[ String] ] = {
@@ -956,9 +956,9 @@ object LL1 {
 	* Input parameters: 无
 	* Return value: -Array[ Array[String] ]（分析表矩阵元素构成的二维数组）
 	* Exception: 未处理
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Wed Oct 16 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Wed Oct 16 2019 +0800
 	 */
 	def createMatrix(): Array[ Array[String] ] = {
@@ -1065,9 +1065,9 @@ object LL1 {
 	* Input parameters: -String（指定字符）
 	* Return value: -Int（指定字符所在的行数）
 	* Exception: 未处理
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Wed Oct 16 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Wed Oct 16 2019 +0800
 	 */
 	def getRow( ch: String ): Int = {
@@ -1090,9 +1090,9 @@ object LL1 {
 	* Input parameters: -String（指定字符）
 	* Return value: -Int（指定字符所在的列数）
 	* Exception: 未处理
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Wed Oct 16 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Wed Oct 16 2019 +0800
 	 */
 	def getColumn( ch: String ): Int = {
@@ -1117,9 +1117,9 @@ object LL1 {
 	* Input parameters: -String（输入的指定字符串）
 	* Return value: -Boolean（分析成功则返回true，否则false）
 	* Exception: 未处理（有出错提示）
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Wed Oct 16 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Wed Oct 16 2019 +0800
 	 */
 	def analyse( expression: String ): Boolean = {
@@ -1203,9 +1203,9 @@ object LL1 {
 	* Input parameters: -(String, String, String)（产生式的左端与右端的两个（或为1个）元素）
 	* Return value: -Int（0表示无，1表示右端第1个元素存在形式上的左递归，2表示右端第2个元素）
 	* Exception: 未处理
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Sat Oct 19 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Sat Oct 19 2019 +0800
 	 */
 	def judgeLeftRecursion( expression: (String, String, String) ): Int = {
@@ -1225,9 +1225,9 @@ object LL1 {
 	* Input parameters: 无
 	* Return value: -ArrayBuffer[ (String, String, String) ]（消除左递归后的新文法）
 	* Exception: 未处理
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Sat Oct 19 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Sat Oct 19 2019 +0800
 	 */
 	def eliminateLeftRecursion(): ArrayBuffer[ (String, String, String) ] = {
@@ -1321,9 +1321,9 @@ object LL1 {
 	* Input parameters: 无
 	* Return value: -String（两输入字符串的差集）
 	* Exception: 未处理
-	* Author: 文华
+	* Author: 来自高山
 	* Created date: Sat Oct 19 2019 +0800
-	* Editor: 文华
+	* Editor: 来自高山
 	* Edited Date: Sat Oct 19 2019 +0800
 	 */
 	def subString( usedCharacters: String, localCandidateLetters: String ): String = {
